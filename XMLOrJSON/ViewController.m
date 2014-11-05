@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic,strong)NSMutableArray *dataArr;
+@property (weak, nonatomic) IBOutlet UITableView *dataTable;
 
 @end
 
@@ -17,13 +21,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    _dataArr = [[NSMutableArray alloc] initWithObjects:@"NSXMLParser",@"KissXML",@"NSJSONSerialization",@"JSONKit", nil];
+
+}
+#pragma mark -UITableView DataSource And Delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
-- (void)didReceiveMemoryWarning
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return [_dataArr count];
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sfagv"];
+    
+    cell.textLabel.text = [self.dataArr objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TableViewController *vc = [[TableViewController alloc] init];
+    
+    vc.selectRow = indexPath.row+1;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 @end
