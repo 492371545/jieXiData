@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C5029256A446E58629229513 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F637AF81AC5787CFA0E445D8 /* libPods.a */; };
+		F32E281F1A0B46CF00980779 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32E281D1A0B46CF00980779 /* WebViewController.m */; };
+		F32E28201A0B46CF00980779 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32E281E1A0B46CF00980779 /* WebViewController.xib */; };
 		F33B45351A09FA6200ADFA53 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B45331A09FA6200ADFA53 /* TableViewController.m */; };
 		F33B45361A09FA6200ADFA53 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F33B45341A09FA6200ADFA53 /* TableViewController.xib */; };
 		F33B45381A0A144000ADFA53 /* a.xml in Resources */ = {isa = PBXBuildFile; fileRef = F33B45371A0A144000ADFA53 /* a.xml */; };
 		F33B453A1A0A251000ADFA53 /* a.json in Resources */ = {isa = PBXBuildFile; fileRef = F33B45391A0A251000ADFA53 /* a.json */; };
+		F33B453C1A0A2CEA00ADFA53 /* a.html in Resources */ = {isa = PBXBuildFile; fileRef = F33B453B1A0A2CEA00ADFA53 /* a.html */; };
 		F35B1A721A0772F900BC6B3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35B1A711A0772F900BC6B3B /* Foundation.framework */; };
 		F35B1A741A0772F900BC6B3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35B1A731A0772F900BC6B3B /* CoreGraphics.framework */; };
 		F35B1A761A0772F900BC6B3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35B1A751A0772F900BC6B3B /* UIKit.framework */; };
@@ -40,11 +43,15 @@
 /* Begin PBXFileReference section */
 		33BC9D374CDB361ED0B9D597 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3EBD1F7EA7C85FC6C467DABC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F32E281C1A0B46CF00980779 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		F32E281D1A0B46CF00980779 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		F32E281E1A0B46CF00980779 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		F33B45321A09FA6200ADFA53 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		F33B45331A09FA6200ADFA53 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		F33B45341A09FA6200ADFA53 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		F33B45371A0A144000ADFA53 /* a.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = a.xml; sourceTree = "<group>"; };
 		F33B45391A0A251000ADFA53 /* a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a.json; sourceTree = "<group>"; };
+		F33B453B1A0A2CEA00ADFA53 /* a.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = a.html; sourceTree = "<group>"; };
 		F35B1A6E1A0772F900BC6B3B /* XMLOrJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMLOrJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35B1A711A0772F900BC6B3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F35B1A731A0772F900BC6B3B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,9 +148,13 @@
 				F35B1A871A0772F900BC6B3B /* ViewController.m */,
 				F33B45371A0A144000ADFA53 /* a.xml */,
 				F33B45391A0A251000ADFA53 /* a.json */,
+				F33B453B1A0A2CEA00ADFA53 /* a.html */,
 				F33B45321A09FA6200ADFA53 /* TableViewController.h */,
 				F33B45331A09FA6200ADFA53 /* TableViewController.m */,
 				F33B45341A09FA6200ADFA53 /* TableViewController.xib */,
+				F32E281C1A0B46CF00980779 /* WebViewController.h */,
+				F32E281D1A0B46CF00980779 /* WebViewController.m */,
+				F32E281E1A0B46CF00980779 /* WebViewController.xib */,
 				F3B2B2321A08AF26008F912A /* Model.h */,
 				F3B2B2331A08AF26008F912A /* Model.m */,
 				F35B1A891A0772F900BC6B3B /* Images.xcassets */,
@@ -242,7 +253,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F33B45381A0A144000ADFA53 /* a.xml in Resources */,
+				F33B453C1A0A2CEA00ADFA53 /* a.html in Resources */,
 				F35B1A8A1A0772F900BC6B3B /* Images.xcassets in Resources */,
+				F32E28201A0B46CF00980779 /* WebViewController.xib in Resources */,
 				F35B1A7C1A0772F900BC6B3B /* InfoPlist.strings in Resources */,
 				F35B1A851A0772F900BC6B3B /* Main.storyboard in Resources */,
 				F33B453A1A0A251000ADFA53 /* a.json in Resources */,
@@ -298,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35B1A881A0772F900BC6B3B /* ViewController.m in Sources */,
+				F32E281F1A0B46CF00980779 /* WebViewController.m in Sources */,
 				F35B1A821A0772F900BC6B3B /* AppDelegate.m in Sources */,
 				F35B1A7E1A0772F900BC6B3B /* main.m in Sources */,
 				F33B45351A09FA6200ADFA53 /* TableViewController.m in Sources */,

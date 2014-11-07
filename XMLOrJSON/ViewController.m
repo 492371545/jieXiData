@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "TableViewController.h"
-
+#import "WebViewController.h"
 @interface ViewController ()
 
 @property (nonatomic,strong)NSMutableArray *dataArr;
@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    _dataArr = [[NSMutableArray alloc] initWithObjects:@"NSXMLParser",@"KissXML",@"NSJSONSerialization",@"JSONKit", nil];
+    _dataArr = [[NSMutableArray alloc] initWithObjects:@"NSXMLParser",@"KissXML",@"NSJSONSerialization",@"JSONKit",@"HTML",@"加载html", nil];
 
 }
 #pragma mark -UITableView DataSource And Delegate
@@ -48,6 +48,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 5)
+    {
+        WebViewController *vc = [[WebViewController alloc] init];
+
+        [self.navigationController pushViewController:vc animated:YES];
+
+        return;
+    }
+    
     TableViewController *vc = [[TableViewController alloc] init];
     
     vc.selectRow = indexPath.row+1;

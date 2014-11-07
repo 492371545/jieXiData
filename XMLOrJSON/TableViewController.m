@@ -12,6 +12,7 @@
 #import "Model.h"
 #import "JSONKit.h"//将字典转换成json
 #import "DDXMLDocument.h"
+#import "TFHpple.h"
 
 @interface TableViewController ()<NSXMLParserDelegate>
 {
@@ -71,7 +72,17 @@
             [self jsonKit:stringJson];
         }
             break;
-            
+        case 5:
+        {
+            //=================================== json
+            //            [self jsonRequest];
+//            NSString *path = [[NSBundle mainBundle] pathForResource:@"a" ofType:@"html"];
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"a" ofType:@"html"];
+
+            NSString *stringJson = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+            [self htmlByHpple:stringJson];
+        }
+            break;
         default:
             break;
     }
@@ -172,7 +183,13 @@
             cell.textLabel.text = [[self.dataArr objectAtIndex:indexPath.row] objectForKey:@"b"];
         }
             break;
-            
+        case 5:
+        {
+            //    ============================= json
+            cell.textLabel.text = [self.dataArr objectAtIndex:indexPath.row] ;
+        }
+            break;
+
         default:
             break;
     }
@@ -180,6 +197,85 @@
    
     
     return cell;
+}
+#pragma mark -使用Hpple解析HTML
+- (void)htmlByHpple:(NSString*)htmlStr
+{
+    TFHpple *html = [[TFHpple alloc] initWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray *arr = [html searchWithXPathQuery:@"//img"];
+    
+    for(int i=0; i < [arr count]; i++)
+    {
+        TFHppleElement *aE = [arr objectAtIndex:i];
+        NSDictionary *dicHtml = [aE attributes];
+
+        NSString *str = [dicHtml objectForKey:@"src"];
+        if(str)
+        {
+            [_dataArr addObject:str];
+            
+        }
+
+    }
+
+/*    NSArray *arr = [html searchWithXPathQuery:@"//a"];
+    
+    NSLog(@"arr: %@",arr);
+    
+    for(int i=0; i < [arr count]; i++)
+    {
+        TFHppleElement *aE = [arr objectAtIndex:i];
+        NSArray *aArr = [aE children];
+        
+        for(int j=0; j < [aArr count]; j++)
+        {
+            TFHppleElement *aaE = [aArr objectAtIndex:j];
+            
+            NSDictionary *dicHtml = [aaE attributes];
+            
+            NSString *str = [dicHtml objectForKey:@"title"];
+            
+            if(str)
+            {
+                [_dataArr addObject:str];
+
+            }
+            else
+            {
+                NSString *str2 = aaE.content;
+                if(str2)
+                {
+                    [_dataArr addObject:str2];
+                    
+                }
+
+            }
+        }
+    }
+    */
+    [self.tableView reloadData];
+}
+
+//如果解析的网页不是utf8编码，如gbk编码，可以先将其转换为utf8编码再对其进行解析
+
+-(NSData *) toUTF8:(NSData *)sourceData
+{
+    CFStringRef gbkStr = CFStringCreateWithBytes(NULL, [sourceData bytes], [sourceData length], kCFStringEncodingGB_18030_2000, false);
+    
+    if(gbkStr == NULL)
+    {
+        return nil;
+    }
+    else
+    {
+        NSString *gbkString = (__bridge NSString*)gbkStr;
+        //根据网页源代码中编码方式进行修改，此处为从gbk转换为utf8
+        NSString *utf8_String = [gbkString stringByReplacingOccurrencesOfString:@"META http-equiv=\"Content-Type\" content=\"text/html; charset=GBK\""
+                                                                     withString:@"META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\""];
+        
+        return [utf8_String dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    
 }
 #pragma mark -使用JSONKit解析器
 - (void)jsonKit:(NSString*)jsonStr
